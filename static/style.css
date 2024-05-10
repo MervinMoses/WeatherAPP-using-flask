@@ -1,0 +1,370 @@
+
+/* register and login */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login-box,
+.register-box {
+    width: 300px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slide-up 0.5s ease;
+}
+
+
+@keyframes slide-up {
+    from {
+        transform: translateX(0%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.login-box h2,
+.register-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.textbox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #209cee;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1b8bc4;
+}
+
+.register-link,
+.login-link {
+    margin-top: 20px;
+}
+
+.register-link p,
+.login-link p {
+    font-size: 14px;
+}
+
+.register-link a,
+.login-link a {
+    color: #209cee;
+    text-decoration: none;
+}
+
+.register-link a:hover,
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* weather page *//* Styles for hero section */
+.header {
+    background-color: #209cee;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.main {
+    padding: 1rem;
+}
+
+.form {
+    margin-bottom: 1rem;
+}
+
+.input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    background-color: #209cee;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1 0 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+delete button
+.box {
+   position: relative;
+}
+
+.delete-btn {
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   width: 20px;
+   height: 20px;
+   padding: 0;
+   display: inline-block;
+   transition: opacity 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+   opacity: 0.5;
+}   
+
+
+.icon {
+    width: 100px;
+    padding: 20px;
+    height: 100px;
+    margin: 2rem;
+    float: left;
+}
+
+.content {
+    padding: 1rem;
+}
+
+.city {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.temperature {
+    font-size: 1.2rem;
+}
+
+.description,
+.humidity,
+.date {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+/* premium page */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    animation: slideInFromLeft 0.5s ease-in-out;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.forecast-card {
+    flex: 1 0 100px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.forecast-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.forecast-details {
+    text-align: center;
+}
+.forecast-date {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+.forecast-info {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #666;
+}
+.forecast-info span {
+    font-weight: bold;
+    color: #333;
+}
+
+.forecast-card:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Not a premium */
+/* Styles for the banner section */
+.banner {
+    background-color: #f2f2f2;
+    padding: 40px;
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for the premium features section */
+.premium-features {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.premium-features h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.bullet-list {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove default left padding */
+    text-align: center; /* Center the list items horizontally */
+}
+
+.bullet-list li {
+    margin-bottom: 10px; /* Add some spacing between list items */
+    align-items: center; /* Center items vertically */
+}
+
+.bullet-list li::before {
+    content: '\2022'; /* Use bullet character as content */
+    margin-right: 5px; /* Add space between bullet and text */
+}
+
+/* Styles for the "Already a premium member?" section */
+.premium-member {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.premium-member p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.premium-member a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.premium-member a:hover {
+    color: #0056b3;
+}
+
+
+
+
+
+
+
+

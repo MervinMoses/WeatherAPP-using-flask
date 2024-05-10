@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+Login Page 
+{%endblock%}
+{% block body %}
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/Weather">
+            <i class="fas fa-home"></i> Wisphers of {{ weather_data[1].city }}
+        </a>
+                <form class="d-flex" action="/Logout" method="POST">
+          <button class="btn btn-outline-success" type="submit">Log Out</button>
+        </form>
+      </div>
+  </nav>
+    <div class="container">
+        <h1>Weather Forecast</h1>
+        {% for weather in weather_data %}
+        <div class="forecast-card">
+            <div class="forecast-details">
+                <p class="forecast-date">{{ weather.date_time }}</p>
+                <img class="forecast-icon" src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather Icon">
+
+                <p class="forecast-info">Temperature: <span>{{ weather.temperature }}°C</span></p>
+                <p class="forecast-info">Description: <span>{{ weather.description }}</span></p>
+                <p class="forecast-info">Humidity: <span>{{ weather.humidity }}%</span></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {%endblock%}
+

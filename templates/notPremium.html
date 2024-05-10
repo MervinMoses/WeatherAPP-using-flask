@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block body %}
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/Weather">
+                <i class="fas fa-home"></i> Weather  Wisphers 
+            </a>
+                    <form class="d-flex" action="/Logout" method="POST">
+              <button class="btn btn-outline-success" type="submit">Log Out</button>
+            </form>
+          </div>
+      </nav>
+    <div class="banner">
+        <h2>Upgrade to Premium for Exclusive Features!</h2>
+        <p>Unlock ad-free experience, premium content, and advanced features.</p>
+        <a href="#" class="cta-button">Upgrade Now</a>
+    </div>
+
+    <div class="premium-features">
+        <h2>Premium Features</h2>
+        <ul class="bullet-list">
+            <li>Ad-free browsing.</li>
+            <li>Access to exclusive content.</li>
+            <li>Get weather of multiple Time Zone.</li>
+            <li>Plan your travel by knowing the weather for the next 12 hours.</li>
+        </ul>
+        <p>Already a premium member? <a href="/login">Sign In</a></p>
+        <p>Return Back <a href="/Weather">Weather</a></p>
+    </div>
+
+  
+     
+    
+ {%endblock%}
+ 

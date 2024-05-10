@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+    {% block body %}
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Hello {{ user_session }}</a>
+            <form class="d-flex" action="/Logout" method="POST">
+              <button class="btn btn-outline-success" type="submit">Log Out</button>
+            </form>
+          </div>
+      </nav>
+    <header class="header">
+        <h1 class="title">What's the Weather Like?</h1>
+    </header>
+
+    <main class="main">
+        <form class="form" method="POST">
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                    <input class="input" name="city" type="text" placeholder="Enter City Name">
+                </div>
+                <div class="control">
+                    <button class="button is-info">Add City</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="cards">
+            {% for weather in weather_data %}
+            <div class="card" >
+
+                <form action="/delete/{{ weather.city }}" method="post">
+                    <button type="submit" class="delete-btn" aria-label="Close">&#10006;</button>
+                </form>
+                <a href="/city/{{ weather.city }}">
+                <img class="icon" src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather Icon">
+                <div class="content">
+                    <h2 class="city">{{ weather.city }}</h2>
+                    <p class="temperature">{{ weather.temperature }}° C</p>
+                    <p class="description">{{ weather.description }}</p>
+                    <p class="humidity">Humidity: {{ weather.humidity }}%</p>
+                    <p class="date">{{ weather.date_time }}</p>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    {%endblock%}
+ 
