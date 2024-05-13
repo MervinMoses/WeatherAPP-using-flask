@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Contact admin
+{%endblock%}
+{% block body %}
+
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/Weather">
+            <i class="fas fa-home"></i>  WeatherWhisper: Unlocking Nature's Secrets
+        </a>
+                <form class="d-flex" action="/Logout" method="POST">
+          <button class="btn btn-outline-success" type="submit">Log Out</button>
+        </form>
+      </div>
+  </nav>
+    <div class="message">
+        <h1>For Premium</h1>
+        <h3>Contact the admin</h3>
+    </div>
+{%endblock%}

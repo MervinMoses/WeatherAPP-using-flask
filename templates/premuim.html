@@ -14,7 +14,7 @@ Login Page
       </div>
   </nav>
     <div class="container">
-        <h1>Weather Forecast</h1>
+        <h1>"Unveil the Climate Ahead"</h1>
         {% for weather in weather_data %}
         <div class="forecast-card">
             <div class="forecast-details">
@@ -24,6 +24,7 @@ Login Page
                 <p class="forecast-info">Temperature: <span>{{ weather.temperature }}°C</span></p>
                 <p class="forecast-info">Description: <span>{{ weather.description }}</span></p>
                 <p class="forecast-info">Humidity: <span>{{ weather.humidity }}%</span></p>
+
             </div>
         </div>
         {% endfor %}

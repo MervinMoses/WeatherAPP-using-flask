@@ -14,7 +14,6 @@ def login():
         if value:
             return redirect(url_for('weather'))
         return render_template('Login.html',msg="Incorrect username or password")
-
     return render_template('Login.html',msg=" ")
 
 
@@ -46,14 +45,16 @@ def weather():
  
             if not function.ins_cities(ispremium):
                 return render_template('notPremium.html')
-
-                
+            if function.ins_cities(ispremium)=="False":
+                return render_template('notFound.html')
+                           
             
     user_session=function.session_check()
     if user_session=="NO":
         return render_template('Login.html', msg="")
     weather_data = function.getWeather()
-    return render_template('weather.html', weather_data=weather_data,user_session=user_session)
+
+    return render_template('weather.html', weather_data=weather_data,user_session=user_session,text="")
 
 @app.route('/delete/<city>', methods=['POST'])
 def delete_city(city):
@@ -76,6 +77,12 @@ def city(city):
 def logout(): 
     function.logout()  
     return redirect(url_for('login'))
+
+@app.route("/upgrade",methods=['GET'])
+def upgrade():
+    return render_template('upgrade.html')
+
+
 
 if __name__=='__main__':
     app.run(debug=True)

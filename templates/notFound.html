@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+City Not Found 
+{%endblock%}
+{% block body %}
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/Weather">
+            <i class="fas fa-home"></i>  WeatherWhisper: Unlocking Nature's Secrets
+        </a>
+                <form class="d-flex" action="/Logout" method="POST">
+          <button class="btn btn-outline-success" type="submit">Log Out</button>
+        </form>
+      </div>
+  </nav>
+    <div class="message">
+        <h1>City Not Found</h1>
+        <p>The city you entered could not be found. Please try again with a different city.</p>
+    </div>
+{%endblock%}

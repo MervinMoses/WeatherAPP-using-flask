@@ -37,6 +37,8 @@ def getOneWeatherDetails(city):
                 'humidity': data['main']['humidity'],
                 'pressure': data['main']['pressure'],
                 'wind_speed': data['wind']['speed'],
+                'min_temperature': int((data['main']['temp_min'] - 32) * 5/9),
+                'max_temperature': int((data['main']['temp_max'] - 32) * 5/9),
                 # Add more forecast variables as needed
             }
             forecast_data.append(forecast)
@@ -77,22 +79,30 @@ def getOneWeatherDetails(city):
 
 
 def getWeather():    
-    username=session['username']
+    username = session['username']
     cities = dataBaseConnect.getData(username)
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid='+API_KEY
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=' + API_KEY
     weather_data = [] 
     for city in cities:  
         r = requests.get(url.format(city)).json()
         if 'main' in r and 'weather' in r:
+            temperature = int((r['main']['temp'] - 32) * 5/9)
+            description = r['weather'][0]['description']
+            icon = r['weather'][0]['icon']
+            humidity = r['main']['humidity']
+            date_time = datetime.datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
             weather = {
                 'city': city,
-                'temperature':  int((r['main']['temp'] - 32) * 5/9),
-                'description': r['weather'][0]['description'],
-                'icon': r['weather'][0]['icon'],
-                'date_time':datetime.datetime.now().strftime("%d %b %Y | %I:%M:%S %p"),
-                'humidity': r['main']['humidity'],
+                'temperature': temperature,
+                'description': description,
+                'icon': icon,
+                'date_time': date_time,
+                'humidity': humidity,
             }
-        weather_data.append(weather)
+            weather_data.append(weather)
+        else:
+            # Handle the case where the required keys are missing in the API response
+            print(f"Error: Required keys not found in API response for city: {city}")
     return weather_data
 
 
@@ -137,13 +147,17 @@ def ins_cities(ispremium):
     current_user=session['username']
     new_city = request.form.get('city')
     if new_city:
-        print(ispremium)
         if not ispremium:
            
-            if new_city not in cities:    
+            if new_city.upper() not in [city.upper() for city in cities]:   
+                
                 if dataBaseConnect.check_record_count(current_user):
-                    dataBaseConnect.insert_city(current_user,new_city)
-                    return True
+            
+                    if checkCity(new_city):
+                        
+                        dataBaseConnect.insert_city(current_user,new_city)
+                        return True
+                    return "False" 
                 return False
             return " City Already Exist"
             
@@ -151,9 +165,11 @@ def ins_cities(ispremium):
             dataBaseConnect.insert_city(current_user,new_city)
             return True
 
-
-
-    
-        
+def checkCity(city):
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid='+ API_KEY
+    r = requests.get(url.format(city)).json()
+    if 'cod' in r and r['cod'] == '404':
+        return False
+    return True
 
     
